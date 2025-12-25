@@ -1,0 +1,15 @@
+{
+  "name": "cofweb",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "engines": { "node": ">=20 <=22" },
+  "scripts": {
+    "preinstall": "node ./scripts/check-node.js || true",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "dev": "powershell -File scripts\\start-local.ps1",
+    "migrate-and-seed": "npm --prefix backend run migrate:dev && npm --prefix backend run seed",
+    "lint": "npm --prefix backend run lint && npm --prefix frontend run lint",
+    "test": "npm --prefix backend test && npm --prefix frontend test"
+  }
+}
